@@ -5,21 +5,19 @@ import { useEffect, useState } from "react"
 
 export function LogoIntro({ onComplete }: { onComplete: () => void }) {
   const [showN, setShowN] = useState(true)
-  const [showNordik, setShowNordik] = useState(false)
+  const [startSlide, setStartSlide] = useState(false)
 
   useEffect(() => {
-    // Show N for 1 second
-    const nTimer = setTimeout(() => {
-      setShowNordik(true)
+    const slideTimer = setTimeout(() => {
+      setStartSlide(true)
     }, 1000)
 
-    // Complete animation after 2.5 seconds total
     const completeTimer = setTimeout(() => {
       onComplete()
-    }, 2500)
+    }, 2800)
 
     return () => {
-      clearTimeout(nTimer)
+      clearTimeout(slideTimer)
       clearTimeout(completeTimer)
     }
   }, [onComplete])
@@ -28,19 +26,43 @@ export function LogoIntro({ onComplete }: { onComplete: () => void }) {
     <AnimatePresence>
       <motion.div
         className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-navy via-blue-900 to-slate-900"
-        initial={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 1, scale: 1 }}
+        animate={{ opacity: startSlide ? [1, 1, 0] : 1, scale: startSlide ? [1, 1, 0.95] : 1 }}
+        transition={{
+          opacity: { duration: 2.8, times: [0, 0.65, 1] },
+          scale: { duration: 2.8, times: [0, 0.65, 1] },
+        }}
       >
-        <div className="flex items-center gap-4">
-          {/* N Logo */}
+        <motion.div className="relative flex items-center">
           <motion.div
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
+            initial={{ opacity: 0, x: 0 }}
+            animate={{
+              opacity: startSlide ? 1 : 0,
+              x: startSlide ? 90 : 0,
+            }}
             transition={{
               duration: 0.8,
               type: "spring",
-              bounce: 0.5,
+              stiffness: 100,
+              damping: 15,
+            }}
+            className="text-5xl font-bold absolute left-0 z-0"
+          >
+            <span className="bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">Nordik</span>
+          </motion.div>
+
+          <motion.div
+            className="relative z-10"
+            initial={{ scale: 0, rotate: -180, x: 0 }}
+            animate={{
+              scale: 1,
+              rotate: 0,
+              x: startSlide ? -20 : 0,
+            }}
+            transition={{
+              scale: { duration: 0.8, type: "spring", bounce: 0.5 },
+              rotate: { duration: 0.8, type: "spring", bounce: 0.5 },
+              x: { duration: 0.8, type: "spring", stiffness: 100, damping: 15 },
             }}
           >
             <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -54,26 +76,7 @@ export function LogoIntro({ onComplete }: { onComplete: () => void }) {
               </defs>
             </svg>
           </motion.div>
-
-          {/* Nordik Text - slides in from the right side of N smoothly */}
-          <AnimatePresence>
-            {showNordik && (
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{
-                  duration: 0.8,
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 15,
-                }}
-                className="text-5xl font-bold"
-              >
-                <span className="bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">Nordik</span>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+        </motion.div>
       </motion.div>
     </AnimatePresence>
   )

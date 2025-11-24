@@ -2,20 +2,20 @@
   "devFiles": [],
   "ampDevFiles": [],
   "polyfillFiles": [
-    "static/chunks/e243e_next_dist_build_polyfills_polyfill-nomodule.js"
+    "static/chunks/node_modules_next_dist_build_polyfills_polyfill-nomodule.js"
   ],
   "lowPriorityFiles": [],
   "rootMainFiles": [
-    "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_50ada493._.js",
-    "static/chunks/e243e_next_dist_compiled_react-dom_9285abba._.js",
-    "static/chunks/e243e_next_dist_compiled_react-server-dom-turbopack_ec466335._.js",
-    "static/chunks/e243e_next_dist_compiled_next-devtools_index_30019300.js",
-    "static/chunks/e243e_next_dist_compiled_2f4a956a._.js",
-    "static/chunks/e243e_next_dist_client_23ecf030._.js",
-    "static/chunks/e243e_next_dist_fdac3cb5._.js",
-    "static/chunks/e243e_@swc_helpers_cjs_39d2a7e1._.js",
-    "static/chunks/Nordik_Nordik_site_a0ff3932._.js",
-    "static/chunks/turbopack-Nordik_Nordik_site_be2d80ab._.js"
+    "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_bae88007._.js",
+    "static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js",
+    "static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_9212ccad._.js",
+    "static/chunks/node_modules_next_dist_compiled_next-devtools_index_1dd7fb59.js",
+    "static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js",
+    "static/chunks/node_modules_next_dist_client_aaee43fe._.js",
+    "static/chunks/node_modules_next_dist_7a8122d0._.js",
+    "static/chunks/node_modules_@swc_helpers_cjs_d80fb378._.js",
+    "static/chunks/_a0ff3932._.js",
+    "static/chunks/turbopack-_45210fd5._.js"
   ],
   "pages": {},
   "ampFirstPages": []

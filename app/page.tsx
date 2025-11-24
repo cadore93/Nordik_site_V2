@@ -12,6 +12,7 @@ import { Header } from "@/components/header"
 import { ScrollProgress } from "@/components/scroll-progress"
 import { LogoIntro } from "@/components/logo-intro"
 import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true)
@@ -20,20 +21,29 @@ export default function Home() {
     <>
       {showIntro && <LogoIntro onComplete={() => setShowIntro(false)} />}
 
-      <main className="min-h-screen relative">
-        <div className="relative z-10">
-          <ScrollProgress />
-          <Header />
-          <Hero />
-          <Services />
-          <About />
-          <WhyUs />
-          <Portfolio />
-          <Testimonials />
-          <CTA />
-          <Footer />
-        </div>
-      </main>
+      <AnimatePresence>
+        {!showIntro && (
+          <motion.main
+            className="min-h-screen relative"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <div className="relative z-10">
+              <ScrollProgress />
+              <Header />
+              <Hero />
+              <Services />
+              <About />
+              <WhyUs />
+              <Portfolio />
+              <Testimonials />
+              <CTA />
+              <Footer />
+            </div>
+          </motion.main>
+        )}
+      </AnimatePresence>
     </>
   )
 }
