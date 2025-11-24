@@ -86,7 +86,7 @@ export function Hero() {
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-navy leading-[1.1] text-balance mb-6">
                   Votre entreprise mérite d'être{" "}
                   <span className="bg-gradient-to-r from-navy via-navy-light to-[#3b82f6] bg-clip-text text-transparent">
-                    trouvé localement
+                    trouvée localement
                   </span>
                 </h1>
               </motion.div>
@@ -98,7 +98,7 @@ export function Hero() {
                 transition={{ delay: 0.7, duration: 0.8, ease: "easeOut" }}
               >
                 <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mt-2 text-center">
-  Positionnez votre entreprise au niveau où elle mérite d’être.
+  Positionnez là au niveau où elle mérite d’être.
 </p>
 
 
