@@ -46,7 +46,8 @@ export function LogoIntro({ onComplete }: { onComplete: () => void }) {
               stiffness: 100,
               damping: 15,
             }}
-            className="text-3xl md:text-5xl font-bold absolute left-0 z-0"
+            className="text-3xl md:text-5xl font-bold absolute left-4 md:left-0 z-0"
+
           >
             <span className="bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
               Nordik
