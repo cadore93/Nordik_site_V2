@@ -46,7 +46,8 @@ export function LogoIntro({ onComplete }: { onComplete: () => void }) {
               stiffness: 100,
               damping: 15,
             }}
-            className="text-3xl md:text-5xl font-bold absolute left-6 md:left-0 z-0"
+            className="text-3xl md:text-5xl font-bold absolute left-2 md:left-0 z-0"
+
 
 
           >
