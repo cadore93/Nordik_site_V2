@@ -23,7 +23,7 @@ export function Hero() {
   return (
     <>
       <motion.section
-        className="relative pt-24 sm:pt-32 pb-16 sm:pb-24 px-4 sm:px-6 overflow-hidden bg-background"
+        className="relative pt-32 pb-24 px-4 overflow-hidden bg-background"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
@@ -62,20 +62,20 @@ export function Hero() {
         <div className="container mx-auto max-w-7xl relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
-              className="space-y-6 sm:space-y-8"
+              className="space-y-8"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
               <motion.div
-                className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-gold/20 to-navy/10 rounded-full border border-gold/30 shadow-lg backdrop-blur-sm"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-gold/20 to-navy/10 rounded-full border border-gold/30 shadow-lg backdrop-blur-sm"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4, duration: 0.6, type: "spring", bounce: 0.4 }}
                 whileHover={{ scale: 1.05 }}
               >
                 <Sparkles className="w-4 h-4 text-gold" />
-                <span className="text-xs sm:text-sm font-semibold text-navy">Agence locale de confiance</span>
+                <span className="text-sm font-semibold text-navy">Agence locale de confiance</span>
               </motion.div>
 
               <motion.div
@@ -83,7 +83,7 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
               >
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-navy leading-[1.15] sm:leading-[1.1] text-balance mb-4 sm:mb-6 px-2 sm:px-0">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-navy leading-[1.1] text-balance mb-6">
                   Votre entreprise mérite d'être{" "}
                   <span className="bg-gradient-to-r from-navy via-navy-light to-[#3b82f6] bg-clip-text text-transparent">
                     trouvé localement
@@ -92,34 +92,35 @@ export function Hero() {
               </motion.div>
 
               <motion.p
-                className="text-lg sm:text-xl md:text-2xl text-muted-foreground leading-relaxed sm:leading-[1.7] text-pretty max-w-3xl mx-auto px-2 sm:px-0"
+                className="text-xl md:text-2xl text-muted-foreground leading-relaxed text-pretty max-w-3xl mx-auto"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.8, ease: "easeOut" }}
               >
-                Nous créons des sites web professionnels et optimisons votre présence Google pour{" "}
-                <span className="font-semibold text-navy">générer plus d'appels</span> et attirer de nouveaux clients
-                dans votre région.
+                <p className="text-lg md:text-xl text-slate-300 max-w-2xl">
+  Positionnez votre entreprise au niveau où elle mérite d’être.
+</p>
+
               </motion.p>
 
               <motion.div
-                className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6 justify-center px-2 sm:px-0"
+                className="flex flex-col sm:flex-row gap-4 pt-6 justify-center"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.9, duration: 0.8, ease: "easeOut" }}
               >
                 <Button
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 shadow-xl hover:shadow-2xl transition-all duration-300 group w-full sm:w-auto"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-6 shadow-xl hover:shadow-2xl transition-all duration-300 group"
                   onClick={() => setIsFormOpen(true)}
                 >
                   Obtenir une analyse gratuite
-                  <ArrowRight className="ml-2 w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 bg-transparent w-full sm:w-auto"
+                  className="text-lg px-8 py-6 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 bg-transparent"
                 >
                   Voir nos services
                 </Button>
