@@ -23,14 +23,42 @@ export function ContactForm({ isOpen, onClose }: ContactFormProps) {
     message: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // TODO: Implement form submission logic
-    console.log("Form submitted:", formData)
-    onClose()
+    setStatus("submitting")
+
+    try {
+      const res = await fetch("https://formspree.io/f/xzzqbbjn", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (res.ok) {
+        setStatus("success")
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          message: "",
+        })
+      } else {
+        setStatus("error")
+      }
+    } catch (err) {
+      console.error(err)
+      setStatus("error")
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setStatus("idle")
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
@@ -60,7 +88,9 @@ export function ContactForm({ isOpen, onClose }: ContactFormProps) {
                 <div className="flex items-center justify-between">
                   <div>
                     <h3 className="text-2xl font-bold mb-2">Obtenir une analyse gratuite</h3>
-                    <p className="text-white/80">Remplissez ce formulaire et recevez votre analyse en 24h</p>
+                    <p className="text-white/80">
+                      Remplissez ce formulaire et recevez votre analyse en 24h
+                    </p>
                   </div>
                   <button
                     onClick={onClose}
@@ -125,7 +155,7 @@ export function ContactForm({ isOpen, onClose }: ContactFormProps) {
 
                   <div className="space-y-2">
                     <label htmlFor="company" className="text-sm font-semibold text-navy">
-                      Nom de l'entreprise *
+                      Nom de l&apos;entreprise *
                     </label>
                     <Input
                       id="company"
@@ -156,17 +186,34 @@ export function ContactForm({ isOpen, onClose }: ContactFormProps) {
 
                 <div className="bg-slate-50 border border-slate-200 rounded-lg p-4">
                   <p className="text-sm text-slate-600">
-                    🎯 <span className="font-semibold">Ce qui est inclus :</span> Analyse complète de votre présence en
-                    ligne, recommandations personnalisées, et estimation gratuite — le tout sans engagement.
+                    🎯 <span className="font-semibold">Ce qui est inclus :</span> Analyse complète
+                    de votre présence en ligne, recommandations personnalisées, et estimation
+                    gratuite — le tout sans engagement.
                   </p>
                 </div>
+
+                {/* Message de succès / erreur */}
+                {status === "success" && (
+                  <div className="rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+                    ✅ Merci&nbsp;! Votre demande a été envoyée. Vous recevrez votre analyse dans les
+                    prochaines 24 heures.
+                  </div>
+                )}
+
+                {status === "error" && (
+                  <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+                    ❌ Oups… une erreur est survenue. Vous pouvez réessayer plus tard ou nous écrire
+                    directement par courriel.
+                  </div>
+                )}
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <Button
                     type="submit"
-                    className="flex-1 bg-navy hover:bg-navy/90 text-white py-6 text-lg font-semibold"
+                    disabled={status === "submitting"}
+                    className="flex-1 bg-navy hover:bg-navy/90 text-white py-6 text-lg font-semibold disabled:opacity-70"
                   >
-                    Envoyer ma demande
+                    {status === "submitting" ? "Envoi en cours..." : "Envoyer ma demande"}
                   </Button>
                   <Button
                     type="button"
