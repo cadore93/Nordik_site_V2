@@ -1,6 +1,6 @@
 "use client"
 
-import { Instagram, Mail, MapPin, Phone } from "lucide-react"
+import { Instagram, Mail, MapPin } from "lucide-react"
 import { motion } from "framer-motion"
 
 const containerVariants = {
@@ -26,10 +26,10 @@ const itemVariants = {
 
 export function Footer() {
   return (
-    <footer className="bg-slate-900 text-white py-12 px-4">
+    <footer className="bg-slate-900 text-white py-10 sm:py-12 px-4 sm:px-6">
       <div className="container mx-auto max-w-6xl">
         <motion.div
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -118,7 +118,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               {[
                 { icon: Mail, text: "contact@nordikai.ca", href: "mailto:contact@nordikai.ca" },
-                
+
                 { icon: MapPin, text: "Montréal, Québec", href: null },
                 { icon: Instagram, text: "@nordik.ai", href: "https://instagram.com/nordik.ai" },
               ].map((item, index) => (
@@ -152,14 +152,14 @@ export function Footer() {
         </motion.div>
 
         <motion.div
-          className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-slate-400"
+          className="pt-6 sm:pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 text-xs sm:text-sm text-slate-400"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          <p>© 2025 Nordik. Tous droits réservés.</p>
-          <div className="flex gap-6">
+          <p className="text-center sm:text-left">© 2025 Nordik. Tous droits réservés.</p>
+          <div className="flex gap-4 sm:gap-6">
             {["Confidentialité", "Conditions"].map((text, index) => (
               <motion.a
                 key={index}

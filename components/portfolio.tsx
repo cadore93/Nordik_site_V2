@@ -50,24 +50,26 @@ export function Portfolio() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="portfolio" className="py-20 px-4 bg-gradient-to-br from-[#1e3a8a] to-[#0f172a]">
+    <section id="portfolio" className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-[#1e3a8a] to-[#0f172a]">
       <div className="container mx-auto max-w-6xl">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 text-balance">Nos réalisations récentes</h2>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto text-pretty">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4 text-balance px-2 sm:px-0">
+            Nos réalisations récentes
+          </h2>
+          <p className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto text-pretty px-2 sm:px-0">
             Des sites web qui génèrent des résultats pour nos clients
           </p>
         </motion.div>
 
         <motion.div
           ref={ref}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -92,9 +94,9 @@ export function Portfolio() {
                     transition={{ duration: 0.3 }}
                   />
                 </motion.div>
-                <div className="p-6">
-                  <p className="text-sm text-gold font-medium mb-1">{project.category}</p>
-                  <h3 className="text-xl font-bold text-navy">{project.title}</h3>
+                <div className="p-5 sm:p-6">
+                  <p className="text-xs sm:text-sm text-gold font-medium mb-1">{project.category}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-navy">{project.title}</h3>
                 </div>
               </Card>
             </motion.div>
