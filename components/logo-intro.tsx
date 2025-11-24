@@ -38,7 +38,8 @@ export function LogoIntro({ onComplete }: { onComplete: () => void }) {
             initial={{ opacity: 0, x: 0 }}
             animate={{
               opacity: startSlide ? 1 : 0,
-              x: startSlide ? 90 : 0,
+              x: startSlide ? (window.innerWidth < 768 ? 40 : 90) : 0,
+
             }}
             transition={{
               duration: 0.8,
