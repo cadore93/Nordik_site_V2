@@ -97,9 +97,10 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.8, ease: "easeOut" }}
               >
-                <p className="text-lg md:text-xl text-slate-300 max-w-2xl">
+                <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mt-2 text-center">
   Positionnez votre entreprise au niveau où elle mérite d’être.
 </p>
+
 
               </motion.p>
 
