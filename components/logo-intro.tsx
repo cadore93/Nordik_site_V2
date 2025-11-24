@@ -46,9 +46,11 @@ export function LogoIntro({ onComplete }: { onComplete: () => void }) {
               stiffness: 100,
               damping: 15,
             }}
-            className="text-5xl font-bold absolute left-0 z-0"
+            className="text-3xl md:text-5xl font-bold absolute left-0 z-0"
           >
-            <span className="bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">Nordik</span>
+            <span className="bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+              Nordik
+            </span>
           </motion.div>
 
           <motion.div
@@ -65,7 +67,14 @@ export function LogoIntro({ onComplete }: { onComplete: () => void }) {
               x: { duration: 0.8, type: "spring", stiffness: 100, damping: 15 },
             }}
           >
-            <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              className="w-12 h-12 md:w-20 md:h-20"
+              width="80"
+              height="80"
+              viewBox="0 0 100 100"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <rect width="100" height="100" rx="20" fill="url(#logo-gradient)" />
               <path d="M30 70V30H40L60 55V30H70V70H60L40 45V70H30Z" fill="white" />
               <defs>
